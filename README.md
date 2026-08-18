@@ -1,6 +1,6 @@
 # aula-api (TypeScript)
 
-Este README mostra um passo a passo para criar a mesma API do projeto original, porém usando TypeScript.
+Passo a passo para criar a mesma API  usando TypeScript.
 
 ## Pré-requisitos
 - Node.js (v16+ recomendado)
