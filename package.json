@@ -15,11 +15,15 @@
   "dependencies": {
     "express": "^5.2.1",
     "sequelize": "^6.37.8",
-    "sqlite3": "^6.0.1"
+    "sqlite3": "^6.0.1",
+    "swagger-jsdoc": "^6.3.0",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^26.2.0",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
     "sequelize-cli": "^6.6.5",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.2"

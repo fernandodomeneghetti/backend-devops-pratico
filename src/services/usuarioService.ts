@@ -22,8 +22,7 @@ export class UsuarioService {
         return usuario;
     }
 
-    async createUsuario(
-        usuarioData: Omit<UsuarioAttributes, "id">) {
+    async createUsuario(usuarioData: Omit<UsuarioAttributes, "id">) {
             return await this.usuarioRepository.create(usuarioData);
         }
 
