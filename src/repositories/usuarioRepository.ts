@@ -9,6 +9,10 @@ export class UsuarioRepository {
         return await Usuario.findByPk(id);
     }
 
+    async findByEmail(email: string) : Promise<Usuario | null> {
+        return await Usuario.findOne({ where: { email }});
+    }
+
     async create(usuarioData: Omit<UsuarioAttributes, "id">):
         Promise<Usuario> {
             return await Usuario.create(usuarioData);

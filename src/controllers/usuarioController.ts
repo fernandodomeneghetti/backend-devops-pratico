@@ -30,8 +30,8 @@ export class UsuarioController {
 
     async create(req: Request, res:Response): Promise<Response> {
         try {
-            const { nome } = req.body;
-            const novoUsuario = await this.usuarioService.createUsuario({nome});
+            const { nome, email, senha } = req.body;
+            const novoUsuario = await this.usuarioService.createUsuario({nome, email, senha});
             return res.status(201).json(novoUsuario);
         } catch (error) {
             return res.status(400).json({ message: (error as Error).message});
