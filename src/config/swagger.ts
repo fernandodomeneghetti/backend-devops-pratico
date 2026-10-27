@@ -9,6 +9,15 @@ const options: swaggerJsdoc.Options = {
             version: "1.0.0",
             description: "API para cadastro de usuários..."
         },
+        components: {
+            securitySchemes: {
+                bearerAuth: {
+                    type: 'http',
+                    scheme: 'bearer',
+                    bearerFormat: 'JWT'
+                }
+            }
+        },
         servers: [
             {
                 url: "http://localhost:3002",
@@ -19,7 +28,10 @@ const options: swaggerJsdoc.Options = {
                 description: "Servidor de Produçao"
             },
         ],
+
+        
     },
+    
     apis: ["./src/routes/*.ts"],
 };
 

@@ -1,5 +1,6 @@
 import {Router} from "express";
 import {UsuarioController} from "../controllers/usuarioController";
+import {authMiddleware} from "../middleware/authMiddleware";
 
 const router = Router();
 const usuarioController = new UsuarioController();
@@ -26,6 +27,8 @@ const usuarioController = new UsuarioController();
  *  get:
  *      summary: Lista todos os usuários
  *      tags: [Usuarios]
+ *      security:
+ *          - bearerAuth: []
  *      responses:
  *          200:
  *              description: Lista de todos usuários
@@ -35,10 +38,12 @@ const usuarioController = new UsuarioController();
  *                          type: array
  *                          items:
  *                              $ref: '#/components/schemas/Usuario'
+ *          401:
+ *              description: Token Inválido
  *          500:
  *              description: Erro interno
  */
-router.get("/", (req, res) => 
+router.get("/", authMiddleware, (req, res) => 
     usuarioController.getAll(req, res));
 
 /**
@@ -47,6 +52,8 @@ router.get("/", (req, res) =>
  *  get:
  *      summary: Buscar usuários por Id
  *      tags: [Usuarios]
+ *      security:
+ *          - bearerAuth: []
  *      parameters:
  *          - in: path
  *            name: id
@@ -60,10 +67,12 @@ router.get("/", (req, res) =>
  *                  application/json:
  *                      schema:
  *                          $ref: '#/components/schemas/Usuario'
+ *          401:
+ *              description: Token Inválido
  *          404:
  *              description: Usuário não encontrado
  */
-router.get("/:id", (req, res) => 
+router.get("/:id", authMiddleware, (req, res) => 
     usuarioController.getById(req, res));
 
 /**
@@ -72,6 +81,8 @@ router.get("/:id", (req, res) =>
  *  post:
  *      summary: Criar novos usuários
  *      tags: [Usuarios]
+ *      security:
+ *          - bearerAuth: []
  *      requestBody:
  *          required: true
  *          content:
