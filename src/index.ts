@@ -17,7 +17,9 @@ app.use("/api/usuarios", usuarioRoutes);
 
 const startServer = async ()=> {
     await connectDatabase()
-    app.listen(PORT, () => { console.log("servidor rodando") });
+    app.listen(PORT, () => { console.log("servidor rodando na porta 3002") });
 };
 
 startServer();
+
+
